@@ -50,24 +50,30 @@ Add the following crontab header at the beginning of the file:
 ```
 
 ### Configuration Steps
-#1. **Open crontab file:**
+1. **Open crontab file:**
 
 ```bash
 crontab -e
 ```
 
-#2. **Add crontab task:**
+2. **Add crontab task:**
 ```bash
 M H D M W COMMAND
 ```
+
 M: Minute (0 - 59)
+
 H: Hour (0 - 23)
+
 D: Day of the month (1 - 31)
+
 M: Month (1 - 12)
+
 W: Day of the week (0 - 6) (0 is Sunday)
+
 COMMAND: Command to be executed
 
-#3. **Save and close the crontab file.**
+3. **Save and close the crontab file.**
 
 ### Sample Crontab Configurations
 
