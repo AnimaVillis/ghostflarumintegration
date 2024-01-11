@@ -36,16 +36,52 @@ This script automates the process of updating your Flarum forum with posts from 
 - **`flarum_tags`:** List of tag IDs for Flarum posts.
 - **`database_file`:** JSON file to store post IDs.
 
-## **Usage**
+## **Crontab Configuration**
 
-1. Run the script using `python script_name.py`.
-2. Monitor console logs for updates on post processing.
-3. Check Discord for success or error notifications.
+### Crontab Header
 
-## **Important Note**
+Add the following crontab header at the beginning of the file:
 
-- The script adjusts the time zone of the post creation date to match your requirements.
+```bash
+# Sample crontab header for the Flarum Forum Updater
+# ---------------------------
+# M  H  D  M  W  COMMAND
+# ---------------------------
+```
 
-## **Contributions**
+### Configuration Steps
+1. **Open crontab file:**
 
-Contributions are welcome! Feel free to open issues or submit pull requests.
+```bash
+crontab -e
+```
+
+2. **Add crontab task:**
+```bash
+M H D M W COMMAND
+```
+M: Minute (0 - 59)
+H: Hour (0 - 23)
+D: Day of the month (1 - 31)
+M: Month (1 - 12)
+W: Day of the week (0 - 6) (0 is Sunday)
+COMMAND: Command to be executed
+
+3. **Save and close the crontab file.**
+
+### Sample Crontab Configurations
+
+1. **Run every hour:**
+   ```bash
+   0 * * * * /path/to/script.py
+   ```
+2. **Run daily at 3:30 AM:**
+   ```bash
+   30 3 * * * /path/to/script.py
+   ```
+3. **Run twice a day at 8 AM and 8 PM:**
+   ```bash
+   0 8,20 * * * /path/to/script.py
+   ```
+
+Feel free to customize the crontab configurations based on your specific scheduling needs.
