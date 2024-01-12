@@ -17,7 +17,13 @@ flarum_tags = ["54"]  # Add the appropriate tag IDs
 # JSON file to store post IDs
 database_file = 'post_database.json'
 
+def check_ghost_config():
+    response = requests.get(ghost_api_url)
+    if response.status_code != 200:
+        raise Exception(f'Ghost API configuration error. Error code: {response.status_code}')
+
 def get_ghost_posts():
+    check_ghost_config()  # Dodaj to sprawdzenie przed próbą pobrania postów
     response = requests.get(ghost_api_url)
     posts = response.json()['posts']
     return posts
@@ -55,7 +61,13 @@ def send_discord_message(content, success=True):
     response = requests.post(discord_webhook_url, headers=headers, data=json.dumps(data))
     return response
 
+def check_flarum_config():
+    response = requests.get(flarum_api_url)
+    if response.status_code != 200:
+        raise Exception(f'Flarum API configuration error. Error Code: {response.status_code}')
+
 def create_flarum_post(title, created_at, tags, original_url):
+    check_flarum_config()  # Dodaj to sprawdzenie przed próbą utworzenia posta
     headers = {
         'Content-Type': 'application/json',
         'Authorization': f'Token {flarum_api_key}'
