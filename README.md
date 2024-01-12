@@ -1,4 +1,4 @@
-# **Flarum Forum Updater**
+# **GHOST API + FLARUM API INTEGRATION**
 
 ## **Overview**
 
