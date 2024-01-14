@@ -26,6 +26,10 @@ This script automates the process of updating your Flarum forum with posts from 
 4. **Run the Script:**
    - Execute the script to update your Flarum forum with the latest Ghost blog posts.
 
+5. **Install by pip**
+   - 'pip install html2text' for convert html to bbcode
+   - 'pip install requests' for requests from api.
+
 ## **Configuration**
 
 - **`ghost_api_key`:** API key for the Ghost blog.
